@@ -1,2 +1,10 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<%= content_for :title do %>
+	<title>Edit Your Profile Info</title>
+<% end %>
+
+<h2>Edit Profile</h2>
+
+<%= simple_form_for @user do |f| %>
+	<%= f.input :description %>
+	<%= f.button :submit, 'Update' %>
+<% end %>

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'users#new'
   resources :users, only: [:index, :new, :create, :show, :edit, :update]
+  resources :professional_profile, only: [:index]
   get 'main' => 'users#new'
   # get 'professional_profile' => 'users#show'
 
