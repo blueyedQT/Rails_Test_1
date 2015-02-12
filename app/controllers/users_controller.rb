@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def index
+  	@users = User.all
+  end
+
   def new
   	@user = User.new
   	@errors = flash[:errors]
@@ -8,11 +12,15 @@ class UsersController < ApplicationController
   	@user = User.create(user_params)
   	if @user.save
   		## login 
-  		render :text => "Congratulatons!"
+  		redirect_to @user
   	else
   		flash[:errors] = @user.errors.full_messages
   		redirect_to root_path
   	end
+  end
+
+  def show 
+  	@user = User.find(params[:id])
   end
 
   def update
