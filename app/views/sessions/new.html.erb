@@ -1,2 +1,5 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<%= simple_form_for(:session, url: sessions_path) do |f| %>
+	<%= f.input :email, required: false, label: false, placeholder: "Email" %>
+	<%= f.input :password, required: false, label: false, placeholder: "Password" %>
+	<%= f.button :submit, "Login", :class => "login_button" %>
+<% end %>
