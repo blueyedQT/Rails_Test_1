@@ -1,10 +1,14 @@
+<%= content_for :title do %>
+	<title>Professional Profile</title>
+<% end %>
+
 <h1>Hi <%= @user.name %>!</h1>
 <%= link_to 'All Users', users_path %>
-<%= link_to 'Logout' %> <!-- Create logout link -->
+<%= link_to 'Logout', logout_path %>
 
 <h3>Here is your profile description:</h3>
 <p class="box"><%= @user.description %></p>
-<%= link_to 'Update My Profile', '/users/9/edit' %>
+<%= link_to 'Update My Profile', edit_user_path(@user.id) %>
 
 <h3>Your professional Network:</h3>
 <!-- Network contacts -->

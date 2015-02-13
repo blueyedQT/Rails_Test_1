@@ -6,12 +6,13 @@ class UsersController < ApplicationController
   def new
   	@user = User.new
   	@errors = flash[:errors]
+    @notice = flash[:notice]
   end
 
   def create
   	@user = User.create(user_params)
   	if @user.save
-  		## login 
+  		log_in @user
   		redirect_to professional_profile_index_path
   	else
   		flash[:errors] = @user.errors.full_messages

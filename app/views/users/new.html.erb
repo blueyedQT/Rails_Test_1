@@ -10,9 +10,19 @@
 	<% end %>
 <% end %>
 <%= simple_form_for @user do |f| %>
-	<%= f.input :name %>
-	<%= f.input :email %>
-	<%= f.input :password %>
-	<%= f.input :password_confirmation %>
+	<%= f.input :name, required: false, label: false, placeholder: "Name" %>
+	<%= f.input :email, required: false, label: false, placeholder: "Email" %>
+	<%= f.input :password, required: false, label: false, placeholder: "Password" %>
+	<%= f.input :password_confirmation, required: false, label: false, placeholder: "Password Confirmation" %>
 	<%= f.button :submit, 'Register' %>
+<% end %>
+
+<h2>Login</h2>
+<% if @notice %>
+	<o><%= @notice %></p>
+<% end %>
+<%= simple_form_for(:session, url: sessions_path) do |f| %>
+	<%= f.input :email, required: false, label: false, placeholder: "Email" %>
+	<%= f.input :password, required: false, label: false, placeholder: "Password" %>
+	<%= f.button :submit, "Login" %>
 <% end %>

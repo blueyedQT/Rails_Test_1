@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'invite/create'
+
   root 'users#new'
   resources :users, only: [:index, :new, :create, :show, :edit, :update]
   resources :sessions, only: [:new, :create, :destroy]
   resources :professional_profile, only: [:index]
   get 'main' => 'users#new'
+  get 'logout' => 'sessions#destroy'
   # get 'professional_profile' => 'users#show'
 
   # The priority is based upon order of creation: first created -> highest priority.

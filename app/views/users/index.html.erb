@@ -2,8 +2,8 @@
 	<title>Users</title>
 <% end %>
 
-<%= link_to 'My Profile' %> <!-- Create Link Back to Profile -->
-<%= link_to 'Logout' %> <!-- Create logout link -->
+<%= link_to 'My Profile', professional_profile_index_path %>
+<%= link_to 'Logout', logout_path %>
 
 <h2>Users you may want to connect with</h2>
 <% if @users %>
@@ -18,7 +18,7 @@
 	<% @users.each do |user| %>
 		<tr>
 			<td><%= link_to user.name, '/users/'+ user.id.to_s %></td>
-			<td><%= link_to 'Connect' %><!-- Link to connect --></td>
+			<td><%= link_to 'Connect', invite_create_path(user) %><!-- Link to connect --></td>
 		</tr>
 	<% end %>
 	</tbody>

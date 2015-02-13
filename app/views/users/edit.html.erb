@@ -5,6 +5,10 @@
 <h2>Edit Profile</h2>
 
 <%= simple_form_for @user do |f| %>
-	<%= f.input :description %>
+	<%= f.input :name, required: false, label: false, placeholder: "Name" %>
+	<%= f.input :email, required: false, label: false, placeholder: "Email" %>
+	<%= f.input :password, required: false, label: false, placeholder: "Password" %>
+	<%= f.input :password_confirmation, required: false, label: false, placeholder: "Password Confirmation" %>
+	<%= f.input :description, required: false, label: false, placeholder: "Input your personal profile description here" %>
 	<%= f.button :submit, 'Update' %>
 <% end %>

@@ -1,5 +1,7 @@
 class ProfessionalProfileController < ApplicationController
+  before_action :require_logged_in
+
   def index
-  	@user = User.find(9) # need to fix this
+  	@user = User.find(current_user)
   end
 end

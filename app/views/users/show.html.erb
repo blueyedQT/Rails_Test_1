@@ -2,8 +2,8 @@
 	<title><%= @user.name %></title>
 <% end %>
 
-<%= link_to 'My Profile' %> <!-- Create Link Back to Profile -->
-<%= link_to 'Logout' %> <!-- Create logout link -->
+<%= link_to 'My Profile', professional_profile_index_path %>
+<%= link_to 'Logout', logout_path %>
 
 <h2><%= @user.name %></h2>
 
