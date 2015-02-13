@@ -16,10 +16,6 @@ class User < ActiveRecord::Base
 
 	def has_password?(submitted_password)
 		self.encrypted_password == encrypt(submitted_password)
-		puts 'This is the enctryped password: '
-		puts self.encrypted_password
-		puts 'This is the password: '
-		puts encrypt(submitted_password)
 	end
 
 	def self.authenticate(email, submitted_password)
@@ -31,7 +27,7 @@ class User < ActiveRecord::Base
 	private
 		def encrypt_password
 			self.salt = Digest::SHA2.hexdigest("#{Time.now.utc}--#{self.password}") if self.new_record?
-			self.encrypted_password = encrypt(self.encrypted_password)
+			self.encrypted_password = encrypt(self.password)
 		end
 
 		def encrypt(password)
